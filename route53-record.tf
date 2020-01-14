@@ -5,16 +5,6 @@ resource "aws_route53_record" "route53_record" {
   ttl     = var.ttl
   records = var.records
   
-  ## Alias records
-  dynamic "alias" {
-    for_each = var.alias
-    content {
-      evaluate_target_health = alias.value.evaluate_target_health
-      name                   = alias.value.name
-      zone_id                = alias.value.zone_id
-    }
-  }
-
   ## Weighted routing
   dynamic "weighted_routing_policy" {
     for_each = var.weighted_routing_policy
