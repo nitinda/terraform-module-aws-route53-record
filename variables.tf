@@ -12,6 +12,7 @@ variable "type" {
 
 variable "ttl" {
   description = "description"
+  type        = number
 }
 
 variable "records" {
