@@ -37,7 +37,7 @@ _Below we are able to check the resources that are being created as part of this
 
 _To use this module, add the following call to your code:_
 
-_Example for_ **_Public Route53 Zone Domain_**
+_Example for_ **_Route53 Record - Simple routing policy_**
 
 ```tf
 
@@ -49,10 +49,11 @@ module "autoscaling_group" {
     aws = aws.services
   }
   
-  name          = "example.test.org"
-  comment       = "Route53 Zone"
-  force_destroy = true
-  tags          = var.tags
+  zone_id = var.zone_id
+  name    = var.name
+  type    = var.type
+  ttl     = var.ttl
+  records = [var.records]
 }
 
 
