@@ -40,6 +40,6 @@ variable "latency_routing_policy" {
 
 variable "weighted_routing_policy" {
   description = "A block indicating a weighted routing policy"
-  type        = map(string)
+  type        = list(string)
   default     = []
 }
