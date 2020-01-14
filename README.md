@@ -84,8 +84,8 @@ _The variables required in order for the module to be successfully called from t
 
 ## Outputs
 
-* **_zone\_id_**
-* **_name\_servers_**
+* **_name_**
+* **_fqdn_**
 
 
 
