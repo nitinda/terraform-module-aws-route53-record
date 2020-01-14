@@ -11,7 +11,7 @@ variable "type" {
 }
 
 variable "ttl" {
-  description = "description"
+  description = "The TTL of the record"
   type        = number
 }
 

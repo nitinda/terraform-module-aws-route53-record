@@ -70,11 +70,14 @@ _The variables required in order for the module to be successfully called from t
 |**_Variable_** | **_Description_** | **_Type_** | **_Argument Status_** |
 |:----|:----|-----:|-----:|
 | **_zone\_id_** | _The ID of the hosted zone_ | _string_ | **_Required_** |
-| **_name_** | _The ID of the hosted zone_ | _string_ | **_Required_** |
-| **_type_** | _The ID of the hosted zone_ | _string_ | **_Required_** |
-| **_ttl_** | _The ID of the hosted zone_ | _number_ | **_Required_** |
-| **_records_** | _The ID of the hosted zone_ | _string_ | **_Required_** |
-| **_failover\_routing\_policy_** | _A block indicating the routing behavior_ | _string_ | **_Required_** |
+| **_name_** | _The name of the record_ | _string_ | **_Required_** |
+| **_type_** | _The record type_ | _string_ | **_Required_** |
+| **_ttl_** | _The TTL of the record_ | _number_ | **_Required_** |
+| **_records_** | _A string list of records_ | _string_ | **_Required_** |
+| **_failover\_routing\_policy_** | _A block indicating the routing behavior_ | _map(string)_ | **_Optional_** |
+| **_geolocation\_routing\_policy_** | _A block indicating the routing behavior_ | _map(string)_ | **_Optional_** |
+| **_latency\_routing\_policy_** | _A block indicating the routing behavior_ | _map(string)_ | **_Optional_** |
+| **_weighted\_routing\_policy_** | _A block indicating the routing behavior_ | _map(string)_ | **_Optional_** |
 
 
 
