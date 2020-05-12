@@ -42,8 +42,8 @@ _Example for_ **_Route53 Record - Simple routing policy_**
 ```tf
 
 
-module "autoscaling_group" {
-  source = "git::https://github.com/nitinda/terraform-module-aws-route53-zone.git?ref=master"
+module "route53_record" {
+  source = "git::https://github.com/nitinda/terraform-module-aws-route53-record.git?ref=master"
 
   providers = {
     aws = aws.services
