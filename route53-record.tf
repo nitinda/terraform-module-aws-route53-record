@@ -31,22 +31,22 @@ resource "aws_route53_record" "route53_record" {
     }
   }
 
-  ## Geolocation routing
-  dynamic "geolocation_routing_policy" {
-    for_each = var.geolocation_routing_policy == {} ? [] : [var.geolocation_routing_policy]
-    content {
-      continent   = lookup(geolocation_routing_policy.value, "continent", null)
-      country     = lookup(geolocation_routing_policy.value, "country", null)
-      subdivision = lookup(geolocation_routing_policy.value, "subdivision", null)
-    }
-  }
+  # ## Geolocation routing
+  # dynamic "geolocation_routing_policy" {
+  #   for_each = var.geolocation_routing_policy == {} ? [] : [var.geolocation_routing_policy]
+  #   content {
+  #     continent   = lookup(geolocation_routing_policy.value, "continent", null)
+  #     country     = lookup(geolocation_routing_policy.value, "country", null)
+  #     subdivision = lookup(geolocation_routing_policy.value, "subdivision", null)
+  #   }
+  # }
 
-  ## Latency routing
-  dynamic "latency_routing_policy" {
-    for_each = var.latency_routing_policy == {} ? [] : [var.latency_routing_policy]
-    content {
-      region = lookup(latency_routing_policy.value, "region", null)
-    }
-  }
+  # ## Latency routing
+  # dynamic "latency_routing_policy" {
+  #   for_each = var.latency_routing_policy == {} ? [] : [var.latency_routing_policy]
+  #   content {
+  #     region = lookup(latency_routing_policy.value, "region", null)
+  #   }
+  # }
 }
 
