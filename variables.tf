@@ -16,7 +16,7 @@ variable "ttl" {
 }
 
 variable "records" {
-  description = "A string list of records. To specify a single record value longer than 255 characters such as a TXT record for DKIM, add \"\" inside the Terraform configuration string (e.g. 'first255characters\'\'morecharacters')."
+  description = "A string list of records. To specify a single record value longer than 255 characters such as a TXT record for DKIM, add \"\" inside the Terraform configuration string."
 }
 
 variable "set_identifier" {
