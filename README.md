@@ -112,13 +112,13 @@ module "route53_record" {
     aws = aws.services
   }
   
-  zone_id = "${aws_route53_zone.primary.zone_id}"
+  zone_id = aws_route53_zone.primary.zone_id
   name    = "example.com"
   type    = "A"
 
   alias = {
-    name                   = "${aws_elb.main.dns_name}"
-    zone_id                = "${aws_elb.main.zone_id}"
+    name                   = aws_elb.main.dns_name
+    zone_id                = aws_elb.main.zone_id
     evaluate_target_health = true
   }
 }
