@@ -35,11 +35,11 @@ variable "alias" {
   default     = {}
 }
 
-# variable "failover_routing_policy" {
-#   description = "A block indicating the routing behavior when associated health check fails"
-#   type        = map(string)
-#   default     = {}
-# }
+variable "failover_routing_policy" {
+  description = "A block indicating the routing behavior when associated health check fails"
+  type        = map(string)
+  default     = {}
+}
 
 # variable "geolocation_routing_policy" {
 #   description = "A block indicating a routing policy based on the geolocation of the requestor"
@@ -47,11 +47,11 @@ variable "alias" {
 #   default     = {}
 # }
 
-variable "latency_routing_policy" {
-  description = "A block indicating a routing policy based on the latency between the requestor and an AWS region"
-  type        = any
-  default     = []
-}
+# variable "latency_routing_policy" {
+#   description = "A block indicating a routing policy based on the latency between the requestor and an AWS region"
+#   type        = any
+#   default     = []
+# }
 
 variable "weighted_routing_policy" {
   description = "A block indicating a weighted routing policy"
