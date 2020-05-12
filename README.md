@@ -102,10 +102,10 @@ _The variables required in order for the module to be successfully called from t
 | **_records_** | _A string list of records_ | _string_ | **_Required_** |
 | **_set\_identifier_** | _Unique identifier to differentiate records with routing policies from one another. Required if using_ **_failover, geolocation, latency_**_, or_ **_weighted_**._ | _string_ | **_Optional_** | **_null_** |
 | **_health\_check\_id_** | _The health check the record should be associated with_ | _string_ | **_Optional_** | **_null_** |
-| **_failover\_routing\_policy_** | _A block indicating the routing behavior_ | _map(string)_ | **_Optional_** |
-| **_geolocation\_routing\_policy_** | _A block indicating the routing behavior_ | _map(string)_ | **_Optional_** |
-| **_latency\_routing\_policy_** | _A block indicating the routing behavior_ | _map(string)_ | **_Optional_** |
-| **_weighted\_routing\_policy_** | _A block indicating the routing behavior_ | _map(string)_ | **_Optional_** |
+| **_failover\_routing\_policy_** | _A block indicating the routing behavior_ | _map(string)_ | **_Optional_** | **_{}_** |
+| **_geolocation\_routing\_policy_** | _A block indicating the routing behavior_ | _map(string)_ | **_Optional_** | **_{}_** |
+| **_latency\_routing\_policy_** | _A block indicating the routing behavior_ | _map(string)_ | **_Optional_** | **_{}_** |
+| **_weighted\_routing\_policy_** | _A block indicating the routing behavior_ | _map(string)_ | **_Optional_** | **_{}_** |
 | **_multivalue\_answer\_routing\_policy_** | _Set to true to indicate a multivalue answer routing policy. Conflicts with any other routing policy_ | _boolean_ | **_Optional_** | **_false_** |
 | **_allow\_overwrite_** | _This does not affect the ability to update the record in Terraform and does not prevent other resources within Terraform or manual Route 53 changes outside Terraform from overwriting this record._ **_false_** _by default. This configuration is not recommended for most environments._ | _boolean_ | **_Optional_** | **_false_** |
 
