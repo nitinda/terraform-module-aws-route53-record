@@ -104,7 +104,7 @@ module "route53_record" {
 
 ---
 
-## Inputs
+## _Inputs_
 
 _The variables required in order for the module to be successfully called from the deployment repository are the following:_
 
@@ -143,7 +143,7 @@ _This module has the following outputs:_
 ---
 
 
-### Usage
+### _Usage_
 
 _In order for the variables to be accessed on module level please use the syntax below:_
 
