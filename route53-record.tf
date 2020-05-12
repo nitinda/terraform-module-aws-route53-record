@@ -17,7 +17,7 @@ resource "aws_route53_record" "route53_record" {
 
   ## Weighted routing
   dynamic "weighted_routing_policy" {
-    for_each = var.weighted_routing_policy
+    for_each = var.weighted_routing_policy == {} ? [] : [var.weighted_routing_policy]
     content {
       weight = weighted_routing_policy.value.weight
     }
@@ -25,7 +25,7 @@ resource "aws_route53_record" "route53_record" {
 
   ## Failover routing
   dynamic "failover_routing_policy" {
-    for_each = var.failover_routing_policy
+    for_each = var.failover_routing_policy == {} ? [] : [var.failover_routing_policy]
     content {
       type = failover_routing_policy.value.type
     }
@@ -33,7 +33,7 @@ resource "aws_route53_record" "route53_record" {
 
   ## Geolocation routing
   dynamic "geolocation_routing_policy" {
-    for_each = var.geolocation_routing_policy
+    for_each = var.geolocation_routing_policy == {} ? [] : [var.geolocation_routing_policy]
     content {
       continent   = lookup(geolocation_routing_policy.value, "continent", null)
       country     = lookup(geolocation_routing_policy.value, "country", null)
@@ -43,7 +43,7 @@ resource "aws_route53_record" "route53_record" {
 
   ## Latency routing
   dynamic "latency_routing_policy" {
-    for_each = var.latency_routing_policy
+    for_each = var.latency_routing_policy == {} ? [] : [var.latency_routing_policy]
     content {
       region = latency_routing_policy.value.region
     }
