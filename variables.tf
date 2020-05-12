@@ -41,11 +41,11 @@ variable "failover_routing_policy" {
   default     = {}
 }
 
-# variable "geolocation_routing_policy" {
-#   description = "A block indicating a routing policy based on the geolocation of the requestor"
-#   type        = map(string)
-#   default     = {}
-# }
+variable "geolocation_routing_policy" {
+  description = "A block indicating a routing policy based on the geolocation of the requestor"
+  type        = any
+  default     = {}
+}
 
 variable "latency_routing_policy" {
   description = "A block indicating a routing policy based on the latency between the requestor and an AWS region"
