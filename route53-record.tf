@@ -5,9 +5,19 @@ resource "aws_route53_record" "route53_record" {
   ttl     = var.ttl
   records = var.records
   
+  dynamic "alias" {
+    for_each = var.alias
+    content {
+      evaluate_target_health = alias.value.evaluate_target_health
+      name                   = alias.value.name
+      zone_id                = alias.value.zone_id
+    }
+  }
+  set_identifier = var.set_identifier
+
   ## Weighted routing
   dynamic "weighted_routing_policy" {
-    for_each = length(var.weighted_routing_policy) == 0 ? [] : var.weighted_routing_policy
+    for_each = var.weighted_routing_policy
     content {
       weight = weighted_routing_policy.value.weight
     }
@@ -15,15 +25,15 @@ resource "aws_route53_record" "route53_record" {
 
   ## Failover routing
   dynamic "failover_routing_policy" {
-    for_each = length(var.failover_routing_policy) == 0 ? [] : var.failover_routing_policy
+    for_each = var.failover_routing_policy
     content {
       type = failover_routing_policy.value.type
     }
   }
-  
+
   ## Geolocation routing
   dynamic "geolocation_routing_policy" {
-    for_each = length(var.geolocation_routing_policy) == 0 ? [] : var.geolocation_routing_policy
+    for_each = var.geolocation_routing_policy
     content {
       continent   = lookup(geolocation_routing_policy.value, "continent", null)
       country     = lookup(geolocation_routing_policy.value, "country", null)
@@ -33,9 +43,10 @@ resource "aws_route53_record" "route53_record" {
 
   ## Latency routing
   dynamic "latency_routing_policy" {
-    for_each = length(var.latency_routing_policy) == 0 ? [] : var.latency_routing_policy
+    for_each = var.latency_routing_policy
     content {
       region = latency_routing_policy.value.region
     }
   }
 }
+
