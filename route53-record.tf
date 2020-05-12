@@ -17,7 +17,7 @@ resource "aws_route53_record" "route53_record" {
 
   ## Weighted routing
   dynamic "weighted_routing_policy" {
-    for_each = var.weighted_routing_policy
+    for_each = var.weighted_routing_policy == {} ? [] : [var.weighted_routing_policy]
     content {
       weight = lookup(weighted_routing_policy.value, "weight", null)
     }
@@ -25,7 +25,7 @@ resource "aws_route53_record" "route53_record" {
 
   ## Failover routing
   dynamic "failover_routing_policy" {
-    for_each = var.failover_routing_policy
+    for_each = var.failover_routing_policy == {} ? [] : [var.failover_routing_policy]
     content {
       type = lookup(failover_routing_policy.value, "type", null)
     }
@@ -41,12 +41,12 @@ resource "aws_route53_record" "route53_record" {
   #   }
   # }
 
-  # ## Latency routing
-  # dynamic "latency_routing_policy" {
-  #   for_each = var.latency_routing_policy == {} ? [] : [var.latency_routing_policy]
-  #   content {
-  #     region = lookup(latency_routing_policy.value, "region", null)
-  #   }
-  # }
+  ## Latency routing
+  dynamic "latency_routing_policy" {
+    for_each = var.latency_routing_policy == {} ? [] : [var.latency_routing_policy]
+    content {
+      region = lookup(latency_routing_policy.value, "region", null)
+    }
+  }
 }
 

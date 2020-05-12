@@ -37,7 +37,7 @@ variable "alias" {
 
 variable "failover_routing_policy" {
   description = "A block indicating the routing behavior when associated health check fails"
-  type        = map(string)
+  type        = any
   default     = {}
 }
 
@@ -47,16 +47,16 @@ variable "failover_routing_policy" {
 #   default     = {}
 # }
 
-# variable "latency_routing_policy" {
-#   description = "A block indicating a routing policy based on the latency between the requestor and an AWS region"
-#   type        = any
-#   default     = []
-# }
+variable "latency_routing_policy" {
+  description = "A block indicating a routing policy based on the latency between the requestor and an AWS region"
+  type        = any
+  default     = {}
+}
 
 variable "weighted_routing_policy" {
   description = "A block indicating a weighted routing policy"
   type        = any
-  default     = []
+  default     = {}
 }
 
 variable "multivalue_answer_routing_policy" {
