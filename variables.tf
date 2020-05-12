@@ -50,7 +50,7 @@ variable "geolocation_routing_policy" {
 variable "latency_routing_policy" {
   description = "A block indicating a routing policy based on the latency between the requestor and an AWS region"
   type        = map(string)
-  default     = []
+  default     = {}
 }
 
 variable "weighted_routing_policy" {
