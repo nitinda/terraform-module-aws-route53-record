@@ -17,7 +17,7 @@ resource "aws_route53_record" "route53_record" {
 
   ## Weighted routing
   dynamic "weighted_routing_policy" {
-    for_each = var.weighted_routing_policy == {} ? [] : [var.weighted_routing_policy]
+    for_each = var.weighted_routing_policy
     content {
       weight = weighted_routing_policy.value.weight
     }
@@ -25,7 +25,7 @@ resource "aws_route53_record" "route53_record" {
 
   ## Failover routing
   dynamic "failover_routing_policy" {
-    for_each = var.failover_routing_policy == {} ? [] : [var.failover_routing_policy]
+    for_each = var.failover_routing_policy
     content {
       type = lookup(failover_routing_policy.value, "type", null)
     }
