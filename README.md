@@ -64,7 +64,7 @@ _Example for_ **_Route53 Record - Weighted routing policy_**
 ```tf
 
 
-module "autoscaling_group" {
+module "route53_zone" {
   source = "git::https://github.com/nitinda/terraform-module-aws-route53-zone.git?ref=master"
 
   providers = {
