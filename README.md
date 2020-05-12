@@ -98,9 +98,31 @@ module "route53_record" {
   }
 }
 
-
 ```
 
+
+_Example for_ **_Route53 Record - Alias record_**
+
+
+```tf
+module "route53_record" {
+  source = "git::https://github.com/nitinda/terraform-module-aws-route53-record.git?ref=master"
+
+  providers = {
+    aws = aws.services
+  }
+  
+  zone_id = "${aws_route53_zone.primary.zone_id}"
+  name    = "example.com"
+  type    = "A"
+
+  alias = {
+    name                   = "${aws_elb.main.dns_name}"
+    zone_id                = "${aws_elb.main.zone_id}"
+    evaluate_target_health = true
+  }
+}
+```
 
 ---
 
