@@ -19,7 +19,7 @@ resource "aws_route53_record" "route53_record" {
   dynamic "weighted_routing_policy" {
     for_each = var.weighted_routing_policy
     content {
-      weight = weighted_routing_policy.value.weight
+      weight = lookup(weighted_routing_policy.value, "weight", null)
     }
   }
 
