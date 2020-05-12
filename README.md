@@ -128,13 +128,19 @@ _The variables required in order for the module to be successfully called from t
 
 
 
+---
 
-## Outputs
+## _Outputs_
+
+### _General_
+
+_This module has the following outputs:_
 
 * **_name_**
 * **_fqdn_**
 
 
+---
 
 
 ### Usage
@@ -152,6 +158,7 @@ data.terraform_remote_state.<module_name>.<output_variable_name>
 
 ```
 
+---
 
 ## Authors
 _Module maintained by Module maintained by the -_ **_Nitin Das_**
