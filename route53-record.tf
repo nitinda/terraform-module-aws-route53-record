@@ -27,7 +27,7 @@ resource "aws_route53_record" "route53_record" {
   dynamic "failover_routing_policy" {
     for_each = var.failover_routing_policy == {} ? [] : [var.failover_routing_policy]
     content {
-      type = failover_routing_policy.value.type
+      type = lookup(failover_routing_policy.value, "type", null)
     }
   }
 
