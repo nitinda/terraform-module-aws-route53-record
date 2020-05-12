@@ -30,7 +30,7 @@ variable "health_check_id" {
 }
 
 variable "alias" {
-  description = "An alias block. Conflicts with ttl & records"
+  description = "An alias block. Conflicts with ttl and records"
   type        = map(string)
   default     = {}
 }
