@@ -102,6 +102,7 @@ _The variables required in order for the module to be successfully called from t
 | **_records_** | _A string list of records_ | _string_ | **_Required_** |
 | **_set\_identifier_** | _Unique identifier to differentiate records with routing policies from one another. Required if using_ **_failover, geolocation, latency_**_, or_ **_weighted_**._ | _string_ | **_Optional_** | **_null_** |
 | **_health\_check\_id_** | _The health check the record should be associated with_ | _string_ | **_Optional_** | **_null_** |
+| **_alias_** | _An alias block. Conflicts with ttl & records_ | _string_ | **_Optional_** | **_{}_** |
 | **_failover\_routing\_policy_** | _A block indicating the routing behavior_ | _map(string)_ | **_Optional_** | **_{}_** |
 | **_geolocation\_routing\_policy_** | _A block indicating the routing behavior_ | _map(string)_ | **_Optional_** | **_{}_** |
 | **_latency\_routing\_policy_** | _A block indicating the routing behavior_ | _map(string)_ | **_Optional_** | **_{}_** |
